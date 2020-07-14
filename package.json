@@ -18,7 +18,9 @@
   },
   "homepage": "https://github.com/videovault/hackfs-videovault#readme",
   "dependencies": {
-    "3box": "^1.20.2",
+    "3box": "^1.20.3",
+    "@textile/threads-core": "^0.1.30",
+    "libp2p-pubsub": "^0.4.6",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
