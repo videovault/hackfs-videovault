@@ -10,7 +10,7 @@ node_modules
 coverage
 
 # production
-build
+dist
 
 # misc
 .DS_Store
@@ -20,6 +20,8 @@ build
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+.cache
+.log
 
 # subgraph
 packages/subgraph/build/
