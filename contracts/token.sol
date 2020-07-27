@@ -45,11 +45,11 @@ contract nft is ERC721 {
         uint256[] memory list = _creatorsList;
         for(uint i = 0; i<list.length;i++){
             _SubscriptionList[_consumerId].push(ContentCreator(list[i],creators[i].Username,creators[i].Useraddress));
-        }
-        
-        for(uint i = 0; i<list.length;i++){
             _SubscriberList[list[i]].push(Subscriber(list[i],subscribers[i].Subsname,subscribers[i].Subsaddress));
         }
+        // for(uint i = 0; i<list.length;i++){
+        //     _SubscriberList[list[i]].push(Subscriber(list[i],subscribers[i].Subsname,subscribers[i].Subsaddress));
+        // }
     }
     
     function MakePayment(uint256[] memory _creatorsList) public {
