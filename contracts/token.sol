@@ -1,6 +1,7 @@
 pragma solidity ^0.6.0;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import "@nomiclabs/buidler/console.sol";
 
 contract nft is ERC721 {
 
@@ -27,7 +28,7 @@ contract nft is ERC721 {
     mapping(uint256 => Subscriber[]) _SubscriberList;
     mapping(uint256 => ContentCreator[]) _SubscriptionList;
 
-    constructor() ERC721("Video-Valut", "VIVA") public {
+    constructor() ERC721("Video-Vault", "VIVA") public {
     }
 
     fallback() external payable { }
@@ -39,6 +40,7 @@ contract nft is ERC721 {
         _mint(msg.sender,userId);
         _CreatorExists[_name] = true;
         userId++;
+        // console.log("Content creator successfully added!");
     }
 
     function Association(uint256 _consumerId, uint256[] memory _creatorsList) public {
@@ -50,6 +52,7 @@ contract nft is ERC721 {
         // for(uint i = 0; i<list.length;i++){
         //     _SubscriberList[list[i]].push(Subscriber(list[i],subscribers[i].Subsname,subscribers[i].Subsaddress));
         // }
+        // console.log("Association successfully created!");
     }
     
     function MakePayment(uint256[] memory _creatorsList) public {
@@ -59,6 +62,7 @@ contract nft is ERC721 {
         for(uint i = 0; i < len; i++){
             creators[subscribed[i]].Useraddress.transfer(amount);
         }
+        // console.log("Payment successfully made to all content creators!");
     }
 
     function Subscribe(string memory _subsname) public {
@@ -66,5 +70,6 @@ contract nft is ERC721 {
         subscribers.push(Subscriber(consumerId,_subsname,msg.sender));
         _SubscriberExists[_subsname] == true;
         consumerId++;
+        // console.log("Subscriber successfully added!");
     }
 }
