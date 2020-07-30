@@ -68,7 +68,16 @@ describe("Token contract", function() {
             await buidlerToken.connect(addr3).AccountCredentials("George");
             await buidlerToken.connect(addr4).Subscribe("Amy");
             const result = await buidlerToken.Association(0,[1]);
-            // console.log(await TokenInstance.subscribers(0));
+            expect(result).to.not.equal(undefined);
+        });
+    });
+
+    describe("Should successfully transfer ethers to the content creators", function() {
+
+        it("Make payment to the content creators", async function() {
+            await TokenInstance.sendTransaction({from: await owner.getAddress(), to: TokenInstance.address, value: '10000000000000000000'});
+            const receipt = await buidlerToken.MakePayment([1]);
+            console.log(receipt);
         });
     });
 });
